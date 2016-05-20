@@ -1,0 +1,24 @@
+{
+  "name": "systemjs-pluginbuilder",
+  "version": "0.0.1",
+  "description": "A systemJS build tool to create plugin based bundles",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt validate test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moccu/systemjs-pluginbuilder.git"
+  },
+  "author": "Norman Rusch (https://github.com/schorfES)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moccu/systemjs-pluginbuilder/issues"
+  },
+  "homepage": "https://github.com/moccu/systemjs-pluginbuilder",
+  "dependencies": {
+    "bluebird": "3.4.0",
+    "merge": "1.2.0",
+    "systemjs-builder": "0.10.4"
+  }
+}
