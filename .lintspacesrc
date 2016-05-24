@@ -1,0 +1,8 @@
+{
+	"editorconfig": ".editorconfig",
+	"newlineMaximum": 2,
+	"ignores": [
+		"js-comments"
+	],
+	"junit": ".grunt/tests/LINTSPACES.xml"
+}
