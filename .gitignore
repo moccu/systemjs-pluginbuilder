@@ -1,3 +1,7 @@
+# dirs
 node_modules
 jspm_packages
 build
+
+# files
+npm-debug.log
