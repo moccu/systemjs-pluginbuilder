@@ -2,13 +2,11 @@ var
 	FILES_TO_VALIDATE = [
 		'lib/**/*.js',
 		'tests/**/*.js',
-		'example/**/*.js',
+		'example/src/**/*.js',
+		'example/*.js',
 		'Gruntfile.js',
 
 		// Exclude:
-		'!**/node_modules/**',
-		'!**/jspm_packages/**',
-		'!**/build/**',
 		'!**/config.js'
 	],
 	FILES_TO_TEST = [
