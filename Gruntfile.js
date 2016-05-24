@@ -1,6 +1,7 @@
 var
 	FILES_TO_VALIDATE = [
 		'lib/**/*.js',
+		'tests/**/*.js',
 		'example/**/*.js',
 		'Gruntfile.js',
 
@@ -9,6 +10,9 @@ var
 		'!**/jspm_packages/**',
 		'!**/build/**',
 		'!**/config.js'
+	],
+	FILES_TO_TEST = [
+		'tests/tests*.js'
 	]
 ;
 
@@ -18,6 +22,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-lintspaces');
+	grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -47,6 +52,12 @@ module.exports = function(grunt) {
 					rcconfig: '.lintspacesrc'
 				}
 			}
+		},
+
+		nodeunit: {
+			all: {
+				src: FILES_TO_TEST
+			}
 		}
 	});
 
@@ -59,4 +70,13 @@ module.exports = function(grunt) {
 			'lintspaces'
 		]
 	);
+
+	grunt.registerTask(
+		'test',
+		'Run JavaScript tests.',
+		[
+			'nodeunit'
+		]
+	);
+
 };
