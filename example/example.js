@@ -11,7 +11,7 @@ var
 			'src/PluginB.js'
 		],
 		out: '../build/',
-		callback: function(message) {
+		onMessage: function(message) {
 			global.console.log(message);
 		}
 	})
