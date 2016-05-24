@@ -1,5 +1,4 @@
 var
-	path = require('path'),
 	PluginBuilder = require('../lib/PluginBuilder'),
 	builder = new PluginBuilder({
 		config: {
@@ -13,7 +12,7 @@ var
 		],
 		out: '../build/',
 		callback: function(message) {
-			console.log(message);
+			global.console.log(message);
 		}
 	})
 ;
@@ -21,9 +20,8 @@ var
 builder
 	.build()
 	.then(function() {
-		console.log('Your build is done');
-		console.log('Your base is: ', builder.builder.loader.pluginLoader.baseURL);
+		global.console.log('Your build is done');
 	})
 	.catch(function(error) {
-		console.log('Your build failed: ', error);
+		global.console.error('Your build failed: ', error);
 	});
