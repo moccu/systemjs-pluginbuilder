@@ -1,0 +1,26 @@
+{
+  "name": "systemjs-pluginbuilder-example",
+  "description": "This is an example how to use systemjs-pluginbuilder.",
+  "version": "1.0.0",
+  "private": true,
+  "main": "example.js",
+  "scripts": {
+    "test": "node example.js"
+  },
+  "author": "Norman Rusch (github.com/schorfES)",
+  "license": "MIT",
+  "devDependencies": {
+    "jspm": "0.15.3"
+  },
+  "jspm": {
+    "directories": {
+      "lib": "src"
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "babel": "npm:babel-core@5.0.12",
+      "babel-runtime": "npm:babel-runtime@5.0.12",
+      "core-js": "npm:core-js@^0.8.1"
+    }
+  }
+}

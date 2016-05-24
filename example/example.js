@@ -3,9 +3,18 @@ var
 	PluginBuilder = require('../lib/PluginBuilder'),
 	builder = new PluginBuilder({
 		config: {
-			// baseURL: '.'
+			baseURL: '.',
 		},
-		configPath: path.join(__dirname, 'config.js')
+		configPath: 'config.js',
+		basePath: 'src/Base.js',
+		pluginPathes: [
+			'src/PluginA.js',
+			'src/PluginB.js'
+		],
+		out: '../build/',
+		callback: function(message) {
+			console.log(message);
+		}
 	})
 ;
 
