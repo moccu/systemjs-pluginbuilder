@@ -16,6 +16,9 @@
 		"__dirname": true,
 		"process": true
 	},
+	"predef": [
+		"-Promise"
+	],
 	"immed": true,
 	"noarg": true,
 	"onevar": true,
