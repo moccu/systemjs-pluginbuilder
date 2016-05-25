@@ -4,7 +4,7 @@
   "description": "A systemJS build tool to create plugin based bundles",
   "main": "lib/PluginBuilder.js",
   "scripts": {
-    "test": "jspm install && grunt validate test"
+    "test": "grunt validate test"
   },
   "repository": {
     "type": "git",
