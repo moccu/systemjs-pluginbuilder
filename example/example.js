@@ -11,8 +11,8 @@ var
 			'src/PluginB.js'
 		],
 		out: '../build/',
-		onMessage: function(message) {
-			global.console.log(message);
+		onMessage: function(data) {
+			global.console.log('[' + data.type + '] ' + data.message);
 		}
 	})
 ;
