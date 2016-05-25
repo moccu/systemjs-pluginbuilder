@@ -15,9 +15,9 @@ exports.tests = {
 
 	'tearDown': function(done) {
 		// Clean build directory after each test run....
-		// rimraf(path.join(__dirname, 'build'), function() {
+		rimraf(path.join(__dirname, 'build'), function() {
 			done();
-		// });
+		});
 	},
 
 	'should return a promise': function(test) {
