@@ -5,6 +5,7 @@
 	"eqnull": true,
 	"expr": true,
 	"globals": {
+		"System": true,
 		"exports": true,
 		"module": true,
 		"define": true,

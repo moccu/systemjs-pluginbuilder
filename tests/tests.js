@@ -15,9 +15,9 @@ exports.tests = {
 
 	'tearDown': function(done) {
 		// Clean build directory after each test run....
-		rimraf(path.join(__dirname, 'build'), function() {
+		// rimraf(path.join(__dirname, 'build'), function() {
 			done();
-		});
+		// });
 	},
 
 	'should return a promise': function(test) {
@@ -35,7 +35,7 @@ exports.tests = {
 	},
 
 	'should parse config.js': function(test) {
-		test.expect(5);
+		test.expect(2);
 
 		var
 			builder = new PluginBuilder({
@@ -48,11 +48,8 @@ exports.tests = {
 			.build()
 			.finally(function() {
 				var config = builder.getConfig();
-				test.equal(config.transpiler, 'babel');
 				test.equal(config.paths['*'], '*.js');
 				test.equal(config.paths['app/*'], 'tests/fixtures/*.js');
-				test.equal(config.paths['github:*'], 'jspm_packages/github/*.js');
-				test.equal(config.paths['npm:*'], 'jspm_packages/npm/*.js');
 				test.done();
 			});
 	},
@@ -75,7 +72,7 @@ exports.tests = {
 			.build()
 			.then(function() {
 				var config = builder.getConfig();
-				test.equal(config.baseURL, 'file:' + process.cwd() + '/');
+				test.equal(config.baseURL, '.');
 				test.equal(config.foo, 'bar-baz');
 			})
 			.finally(function() {
@@ -132,7 +129,7 @@ exports.tests = {
 		test.expect(21);
 
 		function __contains(str, contents) {
-			return new RegExp('System\.register\\(\'' + str + '\'').test(contents);
+			return new RegExp('System\.register\\((\'|")' + str + '(\'|")').test(contents);
 		}
 
 		function __excluded(str, contents) {

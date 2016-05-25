@@ -27,19 +27,6 @@
     "grunt-contrib-nodeunit": "^1.0.0",
     "grunt-jscs": "^2.8.0",
     "grunt-lintspaces": "^0.7.4",
-    "jspm": "0.15.3",
     "rimraf": "2.5.2"
-  },
-  "jspm": {
-    "directories": {
-      "lib": "tests/fixtures"
-    },
-    "configFile": "tests/config.js",
-    "dependencies": {},
-    "devDependencies": {
-      "babel": "npm:babel-core@5.0.12",
-      "babel-runtime": "npm:babel-runtime@5.0.12",
-      "core-js": "npm:core-js@^0.8.1"
-    }
   }
 }
