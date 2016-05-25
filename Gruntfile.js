@@ -6,7 +6,8 @@ var
 		'example/*.js',
 		'Gruntfile.js',
 
-		// Exclude:
+		// Excludes:
+		'!**/build/**/*.js',
 		'!**/config.js'
 	],
 	FILES_TO_TEST = [

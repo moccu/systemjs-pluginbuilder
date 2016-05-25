@@ -35,11 +35,10 @@ exports.tests = {
 	},
 
 	'should parse config.js': function(test) {
-		test.expect(1);
+		test.expect(5);
 
 		var
 			builder = new PluginBuilder({
-				config: {baseURL: '.'},
 				configPath: 'tests/config.js',
 				basePath: 'tests/fixtures/Base.js'
 			})
@@ -47,16 +46,13 @@ exports.tests = {
 
 		builder
 			.build()
-			.then(function() {
-				var config = builder.getConfig();
-				test.deepEqual(config.paths, {
-					'*': '*.js',
-					'app/*': 'tests/fixtures/*.js',
-					'github:*': 'jspm_packages/github/*.js',
-					'npm:*': 'jspm_packages/npm/*.js'
-				});
-			})
 			.finally(function() {
+				var config = builder.getConfig();
+				test.equal(config.transpiler, 'babel');
+				test.equal(config.paths['*'], '*.js');
+				test.equal(config.paths['app/*'], 'tests/fixtures/*.js');
+				test.equal(config.paths['github:*'], 'jspm_packages/github/*.js');
+				test.equal(config.paths['npm:*'], 'jspm_packages/npm/*.js');
 				test.done();
 			});
 	},
