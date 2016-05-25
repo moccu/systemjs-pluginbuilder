@@ -2,7 +2,7 @@
   "name": "systemjs-pluginbuilder",
   "version": "0.0.1",
   "description": "A systemJS build tool to create plugin based bundles",
-  "main": "index.js",
+  "main": "lib/PluginBuilder.js",
   "scripts": {
     "test": "jspm install && grunt validate test"
   },
