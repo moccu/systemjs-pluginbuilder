@@ -54,13 +54,12 @@ exports.tests = {
 			});
 	},
 
-	'should parse merge custom config': function(test) {
-		test.expect(2);
+	'should merge custom config': function(test) {
+		test.expect(1);
 
 		var
 			builder = new PluginBuilder({
 				config: {
-					baseURL: '.',
 					foo: 'bar-baz'
 				},
 				configPath: 'tests/config.js',
@@ -72,7 +71,6 @@ exports.tests = {
 			.build()
 			.then(function() {
 				var config = builder.getConfig();
-				test.equal(config.baseURL, '.');
 				test.equal(config.foo, 'bar-baz');
 			})
 			.finally(function() {
@@ -161,13 +159,13 @@ exports.tests = {
 						}
 
 						// Contains:
-						test.ok(__contains('tests/fixtures/Base', contents), 'Base build contains base module');
+						test.ok(__contains('app/Base', contents), 'Base build contains base module');
 						test.ok(__contains('app/module-a/ModuleA', contents), 'Base build contains module A');
 						test.ok(__contains('app/module-a/SubmoduleA', contents), 'Base build contains submodule A');
 
 						// Excluded:
-						test.ok(__excluded('tests/fixtures/PluginA', contents), 'Base build not contains plugin A');
-						test.ok(__excluded('tests/fixtures/PluginB', contents), 'Base build not contains plugin B');
+						test.ok(__excluded('app/PluginA', contents), 'Base build not contains plugin A');
+						test.ok(__excluded('app/PluginB', contents), 'Base build not contains plugin B');
 						test.ok(__excluded('app/module-b/ModuleB', contents), 'Base build not contains module B');
 						test.ok(__excluded('app/module-b/SubmoduleB', contents), 'Base Build not contains submodule B');
 
@@ -184,13 +182,13 @@ exports.tests = {
 						}
 
 						// Contains:
-						test.ok(__contains('tests/fixtures/PluginA', contents), 'Plugin A build contains plugin A');
+						test.ok(__contains('app/PluginA', contents), 'Plugin A build contains plugin A');
 						test.ok(__contains('app/module-b/ModuleB', contents), 'Plugin A build contains module B');
 						test.ok(__contains('app/module-b/SubmoduleB', contents), 'Plugin A build contains submodule B');
 
 						// Excluded:
-						test.ok(__excluded('tests/fixtures/Base', contents), 'Plugin A build not contains base');
-						test.ok(__excluded('tests/fixtures/PluginB', contents), 'Plugin A build not contains plugin B');
+						test.ok(__excluded('app/Base', contents), 'Plugin A build not contains base');
+						test.ok(__excluded('app/PluginB', contents), 'Plugin A build not contains plugin B');
 						test.ok(__excluded('app/module-a/ModuleA', contents), 'Plugin A build not contains module A');
 						test.ok(__excluded('app/module-a/SubmoduleA', contents), 'Plugin A build not contains submodule A');
 
@@ -207,11 +205,11 @@ exports.tests = {
 						}
 
 						// Contains:
-						test.ok(__contains('tests/fixtures/PluginB', contents), 'Plugin B build contains plugin B');
+						test.ok(__contains('app/PluginB', contents), 'Plugin B build contains plugin B');
 
 						// Excluded:
-						test.ok(__excluded('tests/fixtures/Base', contents), 'Plugin B build not contains base');
-						test.ok(__excluded('tests/fixtures/PluginA', contents), 'Plugin B build not contains plugin A');
+						test.ok(__excluded('app/Base', contents), 'Plugin B build not contains base');
+						test.ok(__excluded('app/PluginA', contents), 'Plugin B build not contains plugin A');
 						test.ok(__excluded('app/module-a/ModuleA', contents), 'Plugin B build not contains module A');
 						test.ok(__excluded('app/module-a/SubmoduleA', contents), 'Plugin B build not contains submodule A');
 						test.ok(__excluded('app/module-b/ModuleB', contents), 'Plugin B build contains module B');
