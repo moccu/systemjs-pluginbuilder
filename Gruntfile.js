@@ -10,7 +10,7 @@ var
 		'!**/build/**/*.js'
 	],
 	FILES_TO_TEST = [
-		'tests/tests*.js'
+		'tests/**/tests*.js'
 	]
 ;
 
