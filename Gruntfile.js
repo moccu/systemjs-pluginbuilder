@@ -1,7 +1,8 @@
 var
 	FILES_TO_VALIDATE = [
 		'lib/**/*.js',
-		'tests/**/*.js',
+		'tests/**/tests*.js',
+		'tests/**/fixtures/**/*.js',
 		'example/src/**/*.js',
 		'example/*.js',
 		'Gruntfile.js',

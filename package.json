@@ -29,5 +29,19 @@
     "grunt-jscs": "^2.8.0",
     "grunt-lintspaces": "^0.7.4",
     "rimraf": "2.5.2"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": ".",
+      "lib": "tests/jspm/fixtures",
+      "packages": "tests/jspm/jspm_packages"
+    },
+    "configFile": "tests/jspm/config.js",
+    "dependencies": {},
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
   }
 }
