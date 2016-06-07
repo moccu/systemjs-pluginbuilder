@@ -22,12 +22,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-lintspaces');
 	grunt.loadNpmTasks('grunt-contrib-nodeunit');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
 		jshint: {
-			all: {
+			source: {
 				src: FILES_TO_VALIDATE,
 				options: {
 					jshintrc: '.jshintrc'
@@ -36,7 +37,7 @@ module.exports = function(grunt) {
 		},
 
 		jscs: {
-			all: {
+			source: {
 				src: FILES_TO_VALIDATE,
 				options: {
 					config: '.jscs.json'
@@ -45,7 +46,7 @@ module.exports = function(grunt) {
 		},
 
 		lintspaces: {
-			all: {
+			source: {
 				src: FILES_TO_VALIDATE,
 				options: {
 					rcconfig: '.lintspacesrc'
@@ -54,8 +55,26 @@ module.exports = function(grunt) {
 		},
 
 		nodeunit: {
-			all: {
+			source: {
 				src: FILES_TO_TEST
+			},
+			readme: {
+				src: 'docs/**/*.md'
+			}
+		},
+
+		concat: {
+			readme: {
+				src: [
+					'docs/intro.md',
+					'docs/installation.md',
+					'docs/options.md',
+					'docs/functions.md',
+					'docs/examples.md',
+					'docs/contribution.md',
+					'docs/license.md'
+				],
+				dest: 'README.md'
 			}
 		}
 	});
@@ -75,6 +94,23 @@ module.exports = function(grunt) {
 		'Run JavaScript tests.',
 		[
 			'nodeunit'
+		]
+	);
+
+	grunt.registerTask(
+		'build',
+		'Build readme file',
+		[
+			'concat:readme'
+		]
+	);
+
+	grunt.registerTask(
+		'default',
+		[
+			'validate',
+			'test',
+			'build'
 		]
 	);
 
