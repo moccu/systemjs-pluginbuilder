@@ -51,15 +51,15 @@ module.exports = function(grunt) {
 				options: {
 					rcconfig: '.lintspacesrc'
 				}
+			},
+			readme: {
+				src: 'docs/**/*.md'
 			}
 		},
 
 		nodeunit: {
 			source: {
 				src: FILES_TO_TEST
-			},
-			readme: {
-				src: 'docs/**/*.md'
 			}
 		},
 
