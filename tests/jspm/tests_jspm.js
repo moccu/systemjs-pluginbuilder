@@ -102,7 +102,7 @@ exports.tests = {
 			builder = new PluginBuilder({
 				builder: 'jspm',
 				basePath: 'tests/jspm/fixtures/Base.js',
-				pluginPathes: [
+				pluginPaths: [
 					'tests/jspm/fixtures/PluginA.js',
 					'tests/jspm/fixtures/PluginB.js'
 				]
@@ -135,7 +135,7 @@ exports.tests = {
 			builder = new PluginBuilder({
 				builder: 'jspm',
 				basePath: 'tests/jspm/fixtures/Base.js',
-				pluginPathes: [
+				pluginPaths: [
 					'tests/jspm/fixtures/PluginA.js',
 					'tests/jspm/fixtures/PluginB.js'
 				]

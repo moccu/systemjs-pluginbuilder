@@ -111,7 +111,7 @@ exports.tests = {
 				config: {baseURL: '.'},
 				configPath: 'tests/systemjs/config.js',
 				basePath: 'tests/systemjs/fixtures/Base.js',
-				pluginPathes: [
+				pluginPaths: [
 					'tests/systemjs/fixtures/PluginA.js',
 					'tests/systemjs/fixtures/PluginB.js'
 				]
@@ -146,7 +146,7 @@ exports.tests = {
 				config: {baseURL: '.'},
 				configPath: 'tests/systemjs/config.js',
 				basePath: 'tests/systemjs/fixtures/Base.js',
-				pluginPathes: [
+				pluginPaths: [
 					'tests/systemjs/fixtures/PluginA.js',
 					'tests/systemjs/fixtures/PluginB.js'
 				]
