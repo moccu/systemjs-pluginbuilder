@@ -6,7 +6,7 @@ var
 		},
 		configPath: 'config.js',
 		basePath: 'src/Base.js',
-		pluginPathes: [
+		pluginPaths: [
 			'src/PluginA.js',
 			'src/PluginB.js'
 		],

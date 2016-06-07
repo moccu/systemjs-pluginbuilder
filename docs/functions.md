@@ -12,7 +12,7 @@ are documented [here](#options).
 	var PluginBuilder = require('systemjs-pluginbuilder'),
 	var builder = new PluginBuilder({
 		basePath: 'jsr/src/Base.js',
-		pluginPathes: [
+		pluginPaths: [
 			'js/src/PluginA.js',
 			'js/src/PluginB.js'
 		]

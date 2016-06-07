@@ -11,7 +11,7 @@ Run ```grunt validate test``` to run the tests and validation tasks.
 
 The readme chapters are located in the _docs_ directory as Markdown. All
 Markdown files will be concatenated through a grunt task ```'docs'```. Call
-```grunt docs``` or run it fully by call ```grunt``` to validate, test and
+```grunt docs``` or run the complete task ```grunt``` to validate, test and
 update the _README.md_.
 
 **Note:** Do not edit the _README.md_ directly, it will be overwritten!
