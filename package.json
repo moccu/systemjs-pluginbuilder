@@ -1,6 +1,6 @@
 {
   "name": "systemjs-pluginbuilder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A systemJS build tool to create plugin based bundles",
   "main": "lib/PluginBuilder.js",
   "scripts": {
