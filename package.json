@@ -20,7 +20,7 @@
     "bluebird": "3.4.0",
     "extend": "3.0.0",
     "jspm": "0.16.35",
-    "systemjs-builder": "0.15.18"
+    "systemjs-builder": "0.15.31"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
