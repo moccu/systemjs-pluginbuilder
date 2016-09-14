@@ -228,5 +228,77 @@ exports.tests = {
 			.finally(function() {
 				test.done();
 			});
+	},
+
+	'should fail when passing wrong path to base file': function(test) {
+		test.expect(1);
+
+		new PluginBuilder({
+			builder: 'systemjs',
+			config: {baseURL: '.'},
+			configPath: 'tests/systemjs/config.js',
+			basePath: 'tests/systemjs/fixtures/not-exists/Base.js'
+		})
+			.build()
+			.catch(function(error) {
+				test.equal(error.message, 'Path to base file is not valid: tests/systemjs/fixtures/not-exists/Base.js');
+				test.done();
+			});
+	},
+
+	'should fail when passing wrong path to plugin file': function(test) {
+		test.expect(1);
+
+		new PluginBuilder({
+			builder: 'systemjs',
+			config: {baseURL: '.'},
+			configPath: 'tests/systemjs/config.js',
+			basePath: 'tests/systemjs/fixtures/Base.js',
+			pluginPaths: [
+				'tests/systemjs/fixtures/not-exists/PluginA.js',
+				'tests/systemjs/fixtures/PluginB.js'
+			]
+		})
+			.build()
+			.catch(function(error) {
+				test.equal(error.message, 'Path to plugin file is not valid: tests/systemjs/fixtures/not-exists/PluginA.js');
+				test.done();
+			});
+	},
+
+	'should fail when base contains wrong module paths': function(test) {
+		test.expect(1);
+
+		new PluginBuilder({
+			builder: 'systemjs',
+			config: {baseURL: '.'},
+			configPath: 'tests/systemjs/config.js',
+			basePath: 'tests/systemjs/fixtures/BaseInvalid.js'
+		})
+			.build()
+			.catch(function(error) {
+				test.ok(error.message.indexOf('Error on fetch for app/not-exists/module-a/ModuleA') > -1);
+				test.done();
+			});
+	},
+
+	'should fail when plugin contains wrong module paths': function(test) {
+		test.expect(1);
+
+		new PluginBuilder({
+			builder: 'systemjs',
+			config: {baseURL: '.'},
+			configPath: 'tests/systemjs/config.js',
+			basePath: 'tests/systemjs/fixtures/Base.js',
+			pluginPaths: [
+				'tests/systemjs/fixtures/PluginAInvalid.js',
+				'tests/systemjs/fixtures/PluginB.js'
+			]
+		})
+			.build()
+			.catch(function(error) {
+				test.ok(error.message.indexOf('Error on fetch for app/not-exists/module-a/ModuleA') > -1);
+				test.done();
+			});
 	}
 };
